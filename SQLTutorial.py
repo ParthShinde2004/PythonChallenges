@@ -55,3 +55,11 @@ def fast_cars_database():
         conn.execute("INSERT INTO Cars(Name,TopSpeed) VALUES('Koenigsegg CCXR',254)")
         conn.execute("INSERT INTO Cars(Name,TopSpeed) VALUES('9Rocket GT9',254)")
         conn.execute("INSERT INTO Cars(Name,TopSpeed) VALUES('SSC Ultimate Aero',257)")
+def print_all_cars():
+      with conn:
+          cur = conn.execute("SELECT id, Name, TopSpeed from Cars")
+          for row in cur:
+             print("ID ",row[0])
+             print("Name: ",row[1])
+             print("Top Speed: ",row[2],"mph\n")
+          print ("The End")
